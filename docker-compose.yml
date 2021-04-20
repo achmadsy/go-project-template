@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./sql_docker
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: user
+      MYSQL_USER: test
+      MYSQL_PASSWORD: 12345
+    container_name: golang_db
+    ports:
+      - "3306:3306"
+    tty: true
+  app:
+    image: golang:1.6.1-alpine
+    build:
+      context: ./go-project
+    environment:
+      dbuser: test
+      dbpass: 12345
+      GIN_MODE: release
+    volumes:
+      - .:/go/src/github.com/achmadsy/go-project/go-project
+    working_dir: /go/src/github.com/achmadsy/go-project/go-project
+    command: bash -c "cd ./go-project && go mod tidy && go build && ./go-project"
+    container_name: golang_app
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - db

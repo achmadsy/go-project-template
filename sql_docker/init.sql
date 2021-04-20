@@ -1,0 +1,2 @@
+DROP DATABASE `user` ;
+CREATE DATABASE `user`;
