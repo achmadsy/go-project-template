@@ -1,7 +1,7 @@
 package servicecharsv1
 
 import (
-	"github.com/achmadsy/go-project-template/go-project/db"
+	db "github.com/achmadsy/go-project-template/go-project/configs"
 	"github.com/achmadsy/go-project-template/go-project/models"
 )
 

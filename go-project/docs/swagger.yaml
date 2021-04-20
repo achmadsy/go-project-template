@@ -1,0 +1,140 @@
+definitions:
+  models.Address:
+    properties:
+      addressLine:
+        type: string
+      id:
+        type: integer
+      userId:
+        type: integer
+    type: object
+  models.OutStruct:
+    properties:
+      data:
+        type: object
+      isSuccess:
+        type: boolean
+      message:
+        type: string
+    type: object
+  models.User:
+    properties:
+      addresses:
+        items:
+          $ref: '#/definitions/models.Address'
+        type: array
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /v1/user/:
+    post:
+      consumes:
+      - application/json
+      description: Post new user
+      parameters:
+      - description: New User
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+      summary: Post new user
+  /v1/user/{userID}/:
+    put:
+      consumes:
+      - application/json
+      description: Edit user detail
+      parameters:
+      - description: Edit User Data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      - description: User ID
+        in: path
+        name: userID
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+      summary: Edit user
+  /v1/user/all:
+    get:
+      description: get all users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OutStruct'
+      summary: Show all registered users
+swagger: "2.0"
