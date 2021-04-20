@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/achmadsy/go-project/db"
-	"github.com/achmadsy/go-project/routes"
+	"github.com/achmadsy/go-project-template/go-project/db"
+	"github.com/achmadsy/go-project-template/go-project/routes"
 )
 
 func main() {

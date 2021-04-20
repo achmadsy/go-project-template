@@ -1,7 +1,7 @@
 package routes
 
 import (
-	apiusers_v1 "github.com/achmadsy/go-project/api/v1"
+	apiusers_v1 "github.com/achmadsy/go-project-template/go-project/api/v1"
 	"github.com/gin-gonic/gin"
 )
 

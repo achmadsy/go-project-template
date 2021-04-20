@@ -1,8 +1,8 @@
 package servicecharsv1
 
 import (
-	"github.com/achmadsy/go-project/db"
-	"github.com/achmadsy/go-project/models"
+	"github.com/achmadsy/go-project-template/go-project/db"
+	"github.com/achmadsy/go-project-template/go-project/models"
 )
 
 //GetAllUsers to query to get all user characters

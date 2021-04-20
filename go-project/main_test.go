@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/achmadsy/go-project/routes"
+	"github.com/achmadsy/go-project-template/go-project/routes"
 	"github.com/stretchr/testify/assert"
 )
 

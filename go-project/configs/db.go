@@ -3,7 +3,7 @@ package db
 import (
 	"os"
 
-	"github.com/achmadsy/go-project/models"
+	"github.com/achmadsy/go-project-template/go-project/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )

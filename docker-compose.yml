@@ -21,8 +21,8 @@ services:
       dbpass: 12345
       GIN_MODE: release
     volumes:
-      - .:/go/src/github.com/achmadsy/go-project/go-project
-    working_dir: /go/src/github.com/achmadsy/go-project/go-project
+      - .:/go/src/github.com/achmadsy/go-project-template/go-project
+    working_dir: /go/src/github.com/achmadsy/go-project-template/go-project
     command: bash -c "cd ./go-project && go mod tidy && go build && ./go-project"
     container_name: golang_app
     ports:
