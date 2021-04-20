@@ -1,4 +1,4 @@
-# Web Application Template with Golang
+# API Rest Services and Web Application Template with Golang
 
 This is a project template to make a Golang based app.
 
