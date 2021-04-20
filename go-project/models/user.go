@@ -8,6 +8,6 @@ type Address struct {
 
 type User struct {
 	ID         uint      `json:"id" gorm:"primary_key"`
-	Name       string    `json:"name" gorm:"name"`
+	Name       string    `json:"name"`
 	Addressses []Address `json:"addresses"`
 }
