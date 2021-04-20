@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"net/http"
+
 	"github.com/achmadsy/go-project-template/go-project/docs"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
@@ -19,6 +21,13 @@ func Run() {
 func getRoutes() {
 	v1 := Router.Group("/v1")
 	addUserRoutes(v1)
+
+	Router.LoadHTMLGlob("templates/*")
+	Router.GET("/index", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title": "Main website",
+		})
+	})
 }
 
 func setSwagger() {
